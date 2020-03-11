@@ -7,7 +7,7 @@ TrayTip,Full Screen F8,Press F8 to toggle RDP full screen,,1
 Menu, Tray, NoStandard
 Menu, Tray, Add,&Info,About
 Menu, Tray, Add
-Menu, Tray, Add,&Esci,ExitProg
+Menu, Tray, Add,&Exit,ExitProg
 Menu, Tray, Default,&Info
 Exit
 
