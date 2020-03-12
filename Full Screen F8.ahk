@@ -12,11 +12,11 @@ config := { isQuiet: false }
 
 checkParams()
 
-if (!config.isQuiet) {
+if !config.isQuiet {
   TrayTip, Full Screen F8, Press F8 to toggle RDP full screen, , 1
 }
 
-supportedParams(){
+supportedParams() {
   MsgBox, 64, Info, Supported parameters:`n`n/q | /quiet | --quiet: Silence starting tooltip
   ExitApp, 1
 }
