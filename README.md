@@ -14,4 +14,4 @@ To exit just right-click the tray icon and choose 'Exit'
 
 ## Command line switches
 
-If you don't like the tooltip at startup, just run the exe using `/q` or `--quiet` or `/quiet`
+If you don't like the tooltip at startup, just run the exe using `/q` or `-q` or `/quiet` or `--quiet`
