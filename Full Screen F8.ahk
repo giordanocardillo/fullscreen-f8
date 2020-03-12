@@ -17,7 +17,7 @@ if !config.isQuiet {
 }
 
 supportedParams() {
-  MsgBox, 64, Info, Supported parameters:`n`n/q | /quiet | --quiet: Silence starting tooltip
+  MsgBox, 64, Info, Supported parameters:`n`n/q | -q | /quiet | --quiet: Silence starting tooltip
   ExitApp, 1
 }
 
@@ -32,7 +32,6 @@ checkParams() {
         supportedParams()
     }
   }
-
 }
 
 about() {
