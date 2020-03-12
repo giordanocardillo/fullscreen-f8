@@ -3,27 +3,46 @@
 #InstallKeybdHook
 
 Menu, Tray, NoStandard
-Menu, Tray, Add, &Info, About
+Menu, Tray, Add, &Info, about
 Menu, Tray, Add
-Menu, Tray, Add, &Exit, ExitProg
-Menu, Tray, Default,&Info
+Menu, Tray, Add, &Exit, exitApp
+Menu, Tray, Default, &Info	
 
-quiet := false
+config := { isQuiet: false }
 
-for n, param in A_Args {
-    if param in /quiet,/q,--quiet
-		quiet = true
+checkParams()
+
+if (!config.isQuiet) {
+	TrayTip, Full Screen F8, Press F8 to toggle RDP full screen,,1
 }
 
-if !quiet
-	TrayTip, Full Screen F8, Press F8 to toggle RDP full screen,,1
+supportedParams() {
+	MsgBox, 64, Info, Supported parameters:`n`n/q | /quiet | --quiet: Silence starting tooltip
+	ExitApp, 1
+}
+
+checkParams() {
+	global config
+	for n, param in A_Args {
+		Switch param {
+			Case "/quiet", "/q", "--quiet", "-q":
+				config.isQuiet := true
+			break
+			Default:
+				supportedParams()
+		}
+	}
 	
-F8::^!CtrlBreak
+}
 
-Exit
+about() {
+	TrayTip, Full Screen F8, Created by Giordano Cardillo,,1
+}
 
-About:
-TrayTip, Full Screen F8, Giordano Cardillo - 2020,,1
+exitApp() {
+	ExitApp, 0
+}
+
+F8::
+Send, ^!{CtrlBreak}
 Exit
-ExitProg:
-ExitApp,0
